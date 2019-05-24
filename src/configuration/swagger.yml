@@ -12,13 +12,24 @@ basePath: "/api"
 
 # Paths supported by the server application
 paths:
-  /account:
-    get:
-      operationId: "account.submit"
+  /connection:
+    post:
+      operationId: "connection.submit"
       tags:
         - "Submit"
       summary: "Submit creditential"
       description: "send the creditential to the back end"
+      parameters:
+        - name: pseudo
+          in: query
+          description: pseudo of user
+          required: True
+          type: string
+        - name: password
+          in: query
+          description: password of user
+          required: True
+          type: string
       responses:
         200:
           description: "Submit successfuly"
